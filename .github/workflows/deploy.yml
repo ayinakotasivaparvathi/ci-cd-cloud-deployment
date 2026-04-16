@@ -1,4 +1,3 @@
-
 name: Deploy to AWS EC2
 
 on:
@@ -17,6 +16,8 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          debug: true
           script: |
             sudo docker stop ci-cd-app || true
             sudo docker rm ci-cd-app || true
